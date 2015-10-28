@@ -8,7 +8,6 @@
 
 import { ClockAdaptor } from '../src/ClockAdaptor.js';
 import chai from 'chai';
-import sinon from 'sinon';
 
 const expect = chai.expect;
 
