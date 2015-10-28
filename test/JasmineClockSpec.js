@@ -6,7 +6,7 @@
 'use strict'
 
 
-import { ClockAdaptor } from '../src/ClockAdaptor.js';
+import ClockAdaptorClass from '../src/ClockAdaptorClass.js';
 import chai from 'chai';
 
 const expect = chai.expect;
@@ -29,7 +29,7 @@ describe("Jasmine Clock", () => {
 	}
 	
 	beforeEach(() => {
-		clock = new ClockAdaptor();
+		clock = new ClockAdaptorClass();
 	})
 	
 	afterEach(() => {

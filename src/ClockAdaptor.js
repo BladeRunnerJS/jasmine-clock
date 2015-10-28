@@ -1,30 +1,9 @@
-import sinon from 'sinon';
+import ClockAdaptorClass from './ClockAdaptorClass';
 
-export class ClockAdaptor {
-	
-	constructor() {
-		this.sinonClock;
-	}
-	
-	isInstalled() {
-		return (this.sinonClock !== undefined);
-	}
-	
-	install() {
-		let timeNow = new Date().getTime();
-		this.sinonClock = sinon.useFakeTimers(timeNow);
-	}
-	
-	uninstall() {
-		this.sinonClock.restore();
-		this.sinonClock = undefined;
-	}
-	
-	tick(milliseconds) {
-		this.sinonClock.tick(milliseconds);
-	}
-	
-}
+const ClockAdaptor = new ClockAdaptorClass()
 
-const ClockAdaptorInstance = new ClockAdaptor();
-export default ClockAdaptorInstance;
+export default ClockAdaptor;
+
+export const mockJasmine = { 
+	clock: () => ClockAdaptor
+};

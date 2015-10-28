@@ -8,7 +8,7 @@
 
 'use strict';
 
-import Clock from '../src/ClockAdaptor.js';
+import { mockJasmine } from '../src/ClockAdaptor.js';
 import chai from 'chai';
 import sinon from 'sinon';
 
@@ -25,7 +25,7 @@ const jasmine = {
 		}
 		return spy;
 	},
-	clock: () => Clock 
+	clock: mockJasmine.clock 
 }
 const Assertion = chai.Assertion;
 Assertion.addMethod('toHaveBeenCalled', function () {

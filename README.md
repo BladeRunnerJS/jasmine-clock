@@ -14,11 +14,7 @@ clock.uninstall();
 OR 
 
 ```
-var jasmine = {
-	clock: function() {
-		return require('jasmine-sinon-clock')
-	}
-}
+var jasmine = require('jasmine-sinon-clock').mockJasmine;
 jasmine.clock().install();
 jasmine.clock().tick(5);
 jasmine.clock().uninstall();
