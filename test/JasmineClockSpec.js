@@ -69,7 +69,7 @@ describe("Jasmine Clock", () => {
 		expect(clock.isInstalled()).to.be.false;
 	});
 	
-	it("can use tick to set timeouts", () => {
+	it("can use tick with setTimeout", () => {
 		clock.install();
 		let timeoutCalled = false;
 		
@@ -89,7 +89,7 @@ describe("Jasmine Clock", () => {
 		expect(timeoutCalled).to.be.true;
 	});
 	
-	it("can use tick to clear timeouts", () => {
+	it("can clear timeouts", () => {
 		clock.install();
 		let timeoutCalled = false;
 		
@@ -103,7 +103,7 @@ describe("Jasmine Clock", () => {
 		expect(timeoutCalled).to.be.false;
 	});
 	
-	it("can use tick to set intervals", () => {
+	it("can use tick with setInterval", () => {
 		clock.install();
 		let intervalCallCount = 0;
 		
@@ -123,7 +123,7 @@ describe("Jasmine Clock", () => {
 		expect(intervalCallCount).to.be.eq(3);
 	});
 	
-	it("can use tick to clear intervals", () => {
+	it("can clear intervals", () => {
 		clock.install();
 		let intervalCallCount = 0;
 		
