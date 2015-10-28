@@ -70,4 +70,88 @@ describe("Jasmine Clock", () => {
 		expect(clock.isInstalled()).to.be.false;
 	});
 	
+	it("can use tick to set timeouts", () => {
+		clock.install();
+		let timeoutCalled = false;
+		
+		setTimeout(() => {
+			timeoutCalled = true;
+		}, 10);
+		
+		expect(timeoutCalled).to.be.false;
+		
+		clock.tick(5);
+		expect(timeoutCalled).to.be.false;
+		
+		clock.tick(4);
+		expect(timeoutCalled).to.be.false;
+		
+		clock.tick(1);
+		expect(timeoutCalled).to.be.true;
+	});
+	
+	it("can use tick to clear timeouts", () => {
+		clock.install();
+		let timeoutCalled = false;
+		
+		let timeout = setTimeout(() => {
+			timeoutCalled = true;
+		}, 10);
+		
+		clearTimeout(timeout);
+		
+		clock.tick(10);
+		expect(timeoutCalled).to.be.false;
+	});
+	
+	it("can use tick to set intervals", () => {
+		clock.install();
+		let intervalCallCount = 0;
+		
+		setInterval(() => {
+			intervalCallCount++;
+		}, 10);
+		
+		expect(intervalCallCount).to.be.eq(0);
+		
+		clock.tick(5);
+		expect(intervalCallCount).to.be.eq(0);
+		
+		clock.tick(5);
+		expect(intervalCallCount).to.be.eq(1);
+		
+		clock.tick(20);
+		expect(intervalCallCount).to.be.eq(3);
+	});
+	
+	it("can use tick to clear intervals", () => {
+		clock.install();
+		let intervalCallCount = 0;
+		
+		let interval = setInterval(() => {
+			intervalCallCount++;
+		}, 10);
+		
+		expect(intervalCallCount).to.equal(0);
+		
+		clearInterval(interval);
+		clock.tick(20);
+		
+		expect(intervalCallCount).to.be.eq(0);
+	});
+	
+	it("replaces Date object", () => {
+		clock.install();
+		
+		let initialTime = new Date().getTime();
+		
+		clock.tick(5);
+		
+		expect(new Date().getTime()).to.equal(initialTime+5);
+		
+		clock.tick(65);
+		
+		expect(new Date().getTime()).to.equal(initialTime+70);
+	});
+	
 })

@@ -20,6 +20,10 @@ export class ClockAdaptor {
 		this.sinonClock = undefined;
 	}
 	
+	tick(milliseconds) {
+		this.sinonClock.tick(milliseconds);
+	}
+	
 }
 
 const ClockAdaptorInstance = new ClockAdaptor();
