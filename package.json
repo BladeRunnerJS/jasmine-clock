@@ -2,11 +2,11 @@
   "name": "jasmine-sinon-clock",
   "version": "0.0.1",
   "description": "A utility that creates an API similar to Jasmine's clock() API but which uses Sinon's fake timers",
-  "main": "dist/module.js",
+  "main": "dist/ClockAdaptor.js",
   "scripts": {
     "prepublish": "npm run build:es5 && npm run build:module",
     "build:es5": "mkdirp dist && babel src -d dist",
-    "build:module": "mkdirp dist && browserify src/module.js -s es5module -t babelify -o dist/es6-module-standalone.js",
+    "build:module": "mkdirp dist && browserify src/ClockAdaptor.js -s ClockAdaptor -t babelify -o dist/ClockAdaptor.js",
     "pretest": "npm run pretest:lint",
     "pretest:lint": "eslint src test",
     "test": "npm run test:node && npm run test:browser",
