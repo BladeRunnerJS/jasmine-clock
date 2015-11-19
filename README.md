@@ -1,11 +1,11 @@
-#jasmine-sinon-clock
+#jasmine-clock
 
 A utility that creates an API similar to Jasmine's clock() API but which uses Sinon's fake timers.
 
 ## Usage
 
 ```
-var clock = require('jasmine-sinon-clock');
+var clock = require('jasmine-clock');
 clock.install();
 clock.tick(5);
 clock.uninstall();
@@ -14,7 +14,7 @@ clock.uninstall();
 OR 
 
 ```
-var jasmine = require('jasmine-sinon-clock').mockJasmine;
+var jasmine = require('jasmine-clock').mockJasmine;
 jasmine.clock().install();
 jasmine.clock().tick(5);
 jasmine.clock().uninstall();
