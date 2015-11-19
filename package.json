@@ -1,5 +1,5 @@
 {
-  "name": "jasmine-sinon-clock",
+  "name": "jasmine-clock",
   "version": "0.0.1",
   "description": "A utility that creates an API similar to Jasmine's clock() API but which uses Sinon's fake timers",
   "main": "dist/ClockAdaptor.js",
