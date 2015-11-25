@@ -6,8 +6,6 @@
 
 /* While these tests duplicate what's in 'JasmineClockSpec' they are intended to ensure that the API is exaclty the same as the Jasmine API by using the tests copied directly from the Jasmine documentation. So the tests don't need to be changed the various Jasmine specific testing methods have been created to proxy through to Sinon */
 
-'use strict';
-
 import { mockJasmine } from '../src/ClockAdaptor.js';
 import chai from 'chai';
 import sinon from 'sinon';
@@ -16,17 +14,17 @@ const expect = chai.expect;
 
 /* start creating Jasmine mock environment */
 const jasmine = {
-	createSpy: () => { 
+	createSpy: () => {
 		let spy = sinon.spy();
 		spy.calls = {
 			count: () => {
 				return spy.callCount;
 			}
-		}
+		};
 		return spy;
 	},
-	clock: mockJasmine.clock 
-}
+	clock: mockJasmine.clock
+};
 const Assertion = chai.Assertion;
 Assertion.addMethod('toHaveBeenCalled', function () {
 	this.assert(
