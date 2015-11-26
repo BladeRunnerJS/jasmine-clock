@@ -1,4 +1,4 @@
-#jasmine-clock [![Build Status](https://travis-ci.org/BladeRunnerJS/brjs.svg)](https://travis-ci.org/BladeRunnerJS/brjs)
+#jasmine-clock [![Build Status](https://travis-ci.org/BladeRunnerJS/jasmine-clock.svg)](https://travis-ci.org/BladeRunnerJS/jasmine-clock)
 
 
 A utility that creates an API similar to Jasmine's clock() API but which uses Sinon's fake timers.
